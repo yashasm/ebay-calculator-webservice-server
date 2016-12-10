@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from BiddingService WSDL service -->
+
+  <service name="Bidding" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ebayWebService"/>
+      <parameter name="wsdlServiceElement" value="BiddingService"/>
+      <parameter name="schemaQualified" value="http://ebayWebService"/>
+      <parameter name="wsdlServicePort" value="Bidding"/>
+      <parameter name="className" value="ebayWebService.Bidding"/>
+      <parameter name="wsdlPortType" value="Bidding"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://ebayWebService" xmlns:retNS="http://ebayWebService" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="saveBid" qname="operNS:saveBid" returnQName="retNS:saveBidReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ebayWebService" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:bidamount" type="tns:int"/>
+        <parameter xmlns:pns="http://ebayWebService" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:itemid" type="tns:int"/>
+        <parameter xmlns:pns="http://ebayWebService" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:itemname" type="tns:string"/>
+        <parameter xmlns:pns="http://ebayWebService" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:seller" type="tns:string"/>
+        <parameter xmlns:pns="http://ebayWebService" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://ebayWebService" xmlns:retNS="http://ebayWebService" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getMyBidingHistory" qname="operNS:getMyBidingHistory" returnQName="retNS:getMyBidingHistoryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ebayWebService" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:myMail" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="saveBid getMyBidingHistory"/>
+
+  </service>
+</deployment>

@@ -1,0 +1,38 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SearchValidationsService WSDL service -->
+
+  <service name="SearchValidations" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ebayWebService"/>
+      <parameter name="wsdlServiceElement" value="SearchValidationsService"/>
+      <parameter name="schemaQualified" value="http://ebayWebService"/>
+      <parameter name="wsdlServicePort" value="SearchValidations"/>
+      <parameter name="className" value="ebayWebService.SearchValidationsSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="SearchValidations"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getMyPurchaseHistory" qname="operNS:getMyPurchaseHistory" xmlns:operNS="http://ebayWebService" returnQName="retNS:getMyPurchaseHistoryReturn" xmlns:retNS="http://ebayWebService" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:email" xmlns:pns="http://ebayWebService" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getMyCollectionData" qname="operNS:getMyCollectionData" xmlns:operNS="http://ebayWebService" returnQName="retNS:getMyCollectionDataReturn" xmlns:retNS="http://ebayWebService" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:email" xmlns:pns="http://ebayWebService" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchItem" qname="operNS:searchItem" xmlns:operNS="http://ebayWebService" returnQName="retNS:searchItemReturn" xmlns:retNS="http://ebayWebService" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:query" xmlns:pns="http://ebayWebService" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchData" qname="operNS:searchData" xmlns:operNS="http://ebayWebService" returnQName="retNS:searchDataReturn" xmlns:retNS="http://ebayWebService" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:query" xmlns:pns="http://ebayWebService" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="searchItem getMyCollectionData getMyPurchaseHistory searchData"/>
+
+  </service>
+</deployment>

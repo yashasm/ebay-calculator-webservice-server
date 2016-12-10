@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ebayWebService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ebayWebService" xmlns:intf="http://ebayWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ebayWebService" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="saveBid">
+    <complexType>
+     <sequence>
+      <element name="bidamount" type="xsd:int"/>
+      <element name="itemid" type="xsd:int"/>
+      <element name="itemname" type="xsd:string"/>
+      <element name="seller" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveBidResponse">
+    <complexType>
+     <sequence>
+      <element name="saveBidReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMyBidingHistory">
+    <complexType>
+     <sequence>
+      <element name="myMail" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMyBidingHistoryResponse">
+    <complexType>
+     <sequence>
+      <element name="getMyBidingHistoryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getMyBidingHistoryResponse">
+
+      <wsdl:part element="impl:getMyBidingHistoryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="saveBidRequest">
+
+      <wsdl:part element="impl:saveBid" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="saveBidResponse">
+
+      <wsdl:part element="impl:saveBidResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMyBidingHistoryRequest">
+
+      <wsdl:part element="impl:getMyBidingHistory" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Bidding">
+
+      <wsdl:operation name="saveBid">
+
+         <wsdl:input message="impl:saveBidRequest" name="saveBidRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:saveBidResponse" name="saveBidResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMyBidingHistory">
+
+         <wsdl:input message="impl:getMyBidingHistoryRequest" name="getMyBidingHistoryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMyBidingHistoryResponse" name="getMyBidingHistoryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BiddingSoapBinding" type="impl:Bidding">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="saveBid">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="saveBidRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="saveBidResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMyBidingHistory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMyBidingHistoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMyBidingHistoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BiddingService">
+
+      <wsdl:port binding="impl:BiddingSoapBinding" name="Bidding">
+
+         <wsdlsoap:address location="http://localhost:8080/ebayWebService/services/Bidding"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ebayWebService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ebayWebService" xmlns:intf="http://ebayWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ebayWebService" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getMyPurchaseHistory">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMyPurchaseHistoryResponse">
+    <complexType>
+     <sequence>
+      <element name="getMyPurchaseHistoryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMyCollectionData">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMyCollectionDataResponse">
+    <complexType>
+     <sequence>
+      <element name="getMyCollectionDataReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchItem">
+    <complexType>
+     <sequence>
+      <element name="query" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchItemResponse">
+    <complexType>
+     <sequence>
+      <element name="searchItemReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchData">
+    <complexType>
+     <sequence>
+      <element name="query" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchDataResponse">
+    <complexType>
+     <sequence>
+      <element name="searchDataReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="searchItemRequest">
+
+      <wsdl:part element="impl:searchItem" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMyPurchaseHistoryResponse">
+
+      <wsdl:part element="impl:getMyPurchaseHistoryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMyCollectionDataRequest">
+
+      <wsdl:part element="impl:getMyCollectionData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMyPurchaseHistoryRequest">
+
+      <wsdl:part element="impl:getMyPurchaseHistory" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchItemResponse">
+
+      <wsdl:part element="impl:searchItemResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMyCollectionDataResponse">
+
+      <wsdl:part element="impl:getMyCollectionDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchDataResponse">
+
+      <wsdl:part element="impl:searchDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchDataRequest">
+
+      <wsdl:part element="impl:searchData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SearchValidations">
+
+      <wsdl:operation name="getMyPurchaseHistory">
+
+         <wsdl:input message="impl:getMyPurchaseHistoryRequest" name="getMyPurchaseHistoryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMyPurchaseHistoryResponse" name="getMyPurchaseHistoryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMyCollectionData">
+
+         <wsdl:input message="impl:getMyCollectionDataRequest" name="getMyCollectionDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMyCollectionDataResponse" name="getMyCollectionDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchItem">
+
+         <wsdl:input message="impl:searchItemRequest" name="searchItemRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchItemResponse" name="searchItemResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchData">
+
+         <wsdl:input message="impl:searchDataRequest" name="searchDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchDataResponse" name="searchDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SearchValidationsSoapBinding" type="impl:SearchValidations">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getMyPurchaseHistory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMyPurchaseHistoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMyPurchaseHistoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMyCollectionData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMyCollectionDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMyCollectionDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchItem">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchItemRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchItemResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SearchValidationsService">
+
+      <wsdl:port binding="impl:SearchValidationsSoapBinding" name="SearchValidations">
+
+         <wsdlsoap:address location="http://localhost:8080/ebayWebService/services/SearchValidations"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
