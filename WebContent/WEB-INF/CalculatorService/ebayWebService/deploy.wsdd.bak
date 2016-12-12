@@ -1,0 +1,54 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CalculatorService WSDL service -->
+
+  <service name="Calculator" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ebayWebService"/>
+      <parameter name="wsdlServiceElement" value="CalculatorService"/>
+      <parameter name="schemaQualified" value="http://ebayWebService,http://json.org"/>
+      <parameter name="wsdlServicePort" value="Calculator"/>
+      <parameter name="className" value="ebayWebService.CalculatorSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Calculator"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="calculate" qname="operNS:calculate" xmlns:operNS="http://ebayWebService" returnQName="retNS:calculateReturn" xmlns:retNS="http://ebayWebService" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:expression" xmlns:pns="http://ebayWebService" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="JSONException" qname="fns:fault" xmlns:fns="http://ebayWebService" class="org.json.JSONException" type="tns:JSONException" xmlns:tns="http://json.org"/>
+      </operation>
+      <parameter name="allowedMethods" value="calculate"/>
+
+      <typeMapping
+        xmlns:ns="http://ebayWebService"
+        qname="ns:>calculate"
+        type="java:ebayWebService.Calculate"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ebayWebService"
+        qname="ns:>calculateResponse"
+        type="java:ebayWebService.CalculateResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://json.org"
+        qname="ns:JSONException"
+        type="java:org.json.JSONException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

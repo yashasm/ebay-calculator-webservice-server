@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -40,11 +40,11 @@
    <ns1:parameter qname="ns2:myMail" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="saveBid getMyBidingHistory"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Bidding"/>
-  <ns1:parameter name="className" value="ebayWebService.Bidding"/>
-  <ns1:parameter name="wsdlServicePort" value="Bidding"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://ebayWebService"/>
+  <ns1:parameter name="wsdlServicePort" value="Bidding"/>
+  <ns1:parameter name="className" value="ebayWebService.Bidding"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://ebayWebService"/>
   <ns1:parameter name="wsdlServiceElement" value="BiddingService"/>
  </ns1:service>
@@ -66,11 +66,11 @@
    <ns1:parameter qname="ns6:query" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="searchItem getMyCollectionData getMyPurchaseHistory searchData"/>
-  <ns1:parameter name="wsdlPortType" value="SearchValidations"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://ebayWebService"/>
-  <ns1:parameter name="wsdlServicePort" value="SearchValidations"/>
+  <ns1:parameter name="wsdlPortType" value="SearchValidations"/>
   <ns1:parameter name="className" value="ebayWebService.SearchValidations"/>
+  <ns1:parameter name="wsdlServicePort" value="SearchValidations"/>
+  <ns1:parameter name="schemaQualified" value="http://ebayWebService"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://ebayWebService"/>
   <ns1:parameter name="wsdlServiceElement" value="SearchValidationsService"/>
  </ns1:service>
@@ -87,11 +87,11 @@
    <ns1:parameter qname="ns8:phone" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="signup validate"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="validation"/>
-  <ns1:parameter name="className" value="ebayWebService.validation"/>
-  <ns1:parameter name="wsdlServicePort" value="validation"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://ebayWebService"/>
+  <ns1:parameter name="wsdlServicePort" value="validation"/>
+  <ns1:parameter name="className" value="ebayWebService.validation"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://ebayWebService"/>
   <ns1:parameter name="wsdlServiceElement" value="validationService"/>
  </ns1:service>
@@ -112,11 +112,11 @@
    <ns1:parameter qname="ns10:cvv" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="getAccountDetails setAccountDetails"/>
-  <ns1:parameter name="wsdlPortType" value="Accounts"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://ebayWebService"/>
-  <ns1:parameter name="wsdlServicePort" value="Accounts"/>
+  <ns1:parameter name="wsdlPortType" value="Accounts"/>
   <ns1:parameter name="className" value="ebayWebService.Accounts"/>
+  <ns1:parameter name="wsdlServicePort" value="Accounts"/>
+  <ns1:parameter name="schemaQualified" value="http://ebayWebService"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://ebayWebService"/>
   <ns1:parameter name="wsdlServiceElement" value="AccountsService"/>
  </ns1:service>
